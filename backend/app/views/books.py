@@ -1,8 +1,6 @@
 from rest_framework import viewsets
-from rest_framework.response import Response
-from rest_framework import status
-from app.models import Book
-from app.serializers import BookSerializer
+from app.models.book_model import Book
+from app.serializers.book_serializer import BookSerializer
 
 
 #ModelViewSet comes with CRUD out of the box. We will use that to save time

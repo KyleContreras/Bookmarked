@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from rest_framework.routers import DefaultRouter
 from .views.books import BookViewSet
+from .views.registration import register
+from .views.profile import profile_view
 
 router = DefaultRouter()
 router.register(r'books', BookViewSet)
@@ -25,4 +28,9 @@ router.register(r'books', BookViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', register, name='register'),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/profile/', profile_view, name='profile'),
 ]

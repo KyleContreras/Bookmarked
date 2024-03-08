@@ -1,0 +1,1 @@
+#TODO: bookshelf is all ids; userid and their books, an id pointing to a review on its own table

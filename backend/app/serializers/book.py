@@ -4,6 +4,7 @@ from app.serializers.book_reviews import BookReviewSerializer
 
 
 class BookSerializer(serializers.ModelSerializer):
+    # TODO method serializer with if statement to check for user id
     reviews = BookReviewSerializer(many=True, read_only=True)
     class Meta:
         model = Book

@@ -1,12 +1,10 @@
-from django.contrib.auth import authenticate
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from ..serializers.user import UserSerializer
 from rest_framework.authtoken.models import Token
-
-#TODO: Optional: Refactor this as class-based instead of functional
+from django.contrib.auth import authenticate
+from app.serializers.user import UserSerializer
 
 
 @api_view(['POST'])

@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environments
+venv/
+env/
+ENV/
+
+# Django specific
+*.log
+*.pot
+db.sqlite3
+/media
+/static
+
+# Ignore Django migrations except __init__.py
+**/migrations/**
+!**/migrations/__init__.py
+
+# Ignore Visual Studio files
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.csproj
+*.vcxproj
+*.pdb
+*.obj
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore PyCharm files
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Exclude all files and directories inside __pycache__
+__pycache__/*

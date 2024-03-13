@@ -1,8 +1,8 @@
 from rest_framework import viewsets, authentication, permissions
 from rest_framework.exceptions import PermissionDenied
 from app.models.bookcase import Bookcase, BooksInBookcase
-from app.models.user_profile import UserProfile
-from app.serializers.user_profile import UserProfileSerializer
+# from app.models.user_profile import UserProfile
+# from app.serializers.user_profile import UserProfileSerializer
 from app.serializers.bookcase import BookcaseSerializer, BooksInBookcaseSerializer
 
 

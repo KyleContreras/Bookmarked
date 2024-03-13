@@ -1,4 +1,4 @@
-from rest_framework import viewsets, authentication, permissions
+from rest_framework import viewsets, authentication, permissions, filters
 from rest_framework.exceptions import PermissionDenied
 from app.models.user_profile import UserProfile
 from app.serializers.user_profile import UserProfileSerializer
@@ -7,9 +7,10 @@ from app.serializers.user_profile import UserProfileSerializer
 class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
-
     authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
 
     # Regulate access to HTTP methods
     def get_permissions(self):

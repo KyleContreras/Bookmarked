@@ -41,8 +41,8 @@ def user_logout(request):
         return Response({'message': 'User logged out successfully'}, status=status.HTTP_200_OK)
 
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def hello_world(request):
-    if request.method == 'GET':
-        return Response({'message': 'Hello World'}, status=status.HTTP_200_OK)
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def hello_world(request):
+#     if request.method == 'GET':
+#         return Response({'message': 'Hello World'}, status=status.HTTP_200_OK)

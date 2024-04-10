@@ -1,0 +1,48 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+
+const LogoutButton = () => {
+    const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error('No token found in local storage.');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/user/logout/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                }
+            });
+            const responseData = await response.json();
+            if (!response.ok) {
+                throw new Error(responseData.message || 'LogoutButton failed.');
+            }
+
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('token');
+            localStorage.removeItem('bookcase_id');
+            console.log(`User successfully logged out.`);
+
+            navigate('/books');
+        } catch (errorMsg: any) {
+            setError(errorMsg.message);
+        }
+    };
+
+    return (
+        <div className="container-fluid d-flex flex-column align-items-center">
+            <button onClick={handleLogout} className="btn btn-danger mb-2">Logout</button>
+        </div>
+    );
+};
+
+export default LogoutButton;

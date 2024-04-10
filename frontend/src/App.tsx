@@ -1,47 +1,36 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useEffect, useState } from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './App.css';
+import MainLayout from "./layouts/MainLayout.tsx";
+import BooksPage from "./Components/Book/BooksPage.tsx";
+import ProfilesPage from "./Components/Profile/ProfilesPage.tsx";
+import AccountPage from "./Components/Account/AccountPage.tsx";
+import MyProfilePage from "./Components/Profile/MyProfilePage.tsx";
+import { SearchProvider } from './contexts/SearchContext';
+import MyBookcasePage from "./Components/Bookcase/MyBookcasePage.tsx";
+//import MyBookReview from "./Components/MyBookReview/MyBookReview.tsx";
+
+
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route path='/' element={ <MainLayout /> }>
+            <Route path='/books' element={ <BooksPage /> } />
+            <Route path='/userprofiles' element={ <ProfilesPage /> } />
+            <Route path='/account' element={ <AccountPage /> } />
+            <Route path='/myprofile' element={ <MyProfilePage /> } />
+            <Route path='/mybookcase' element={ <MyBookcasePage /> } />
+            {/*<Route path='/reviews' element={ <MyBookReview /> } />*/}
+        </Route>
+    )
+);
 
 function App() {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/');
-
-            if (response.ok) {
-                const jsonData = await response.json();
-                setData(jsonData);
-            } else {
-                console.error('Failed to fetch data:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
-
     return (
-        <div>
-            <h1>Bookmarked</h1>
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo"/>
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo"/>
-                </a>
-            </div>
-            {data ? (
-                <pre>{JSON.stringify(data, null, 2)}</pre>
-            ) : (
-                <p>Stuff goes here</p>
-            )}
-        </div>
+        <SearchProvider>
+            <RouterProvider router={ router } />
+        </SearchProvider>
     );
 }
 

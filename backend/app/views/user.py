@@ -14,7 +14,7 @@ def create_account(request):
         if serializer.is_valid():
             user = serializer.save()
             token, _ = Token.objects.get_or_create(user=user)
-            return Response({'token': token, 'user': serializer.data}, status=status.HTTP_201_CREATED)
+            return Response({'token': token.key, 'user': serializer.data}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -39,10 +39,3 @@ def user_logout(request):
         token = Token.objects.get(user=request.user)
         token.delete()
         return Response({'message': 'User logged out successfully'}, status=status.HTTP_200_OK)
-
-
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def hello_world(request):
-#     if request.method == 'GET':
-#         return Response({'message': 'Hello World'}, status=status.HTTP_200_OK)

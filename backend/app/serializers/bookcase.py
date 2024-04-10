@@ -8,7 +8,7 @@ class BookcaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bookcase
-        fields = ['user', 'title', 'books']
+        fields = ['id', 'user', 'title', 'books']
 
     def get_books(self, object):
         entries = BooksInBookcase.objects.filter(bookcase=object)
@@ -20,4 +20,4 @@ class BookcaseSerializer(serializers.ModelSerializer):
 class BooksInBookcaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = BooksInBookcase
-        fields = ['book', 'bookcase']
+        fields = ['id', 'book', 'bookcase']

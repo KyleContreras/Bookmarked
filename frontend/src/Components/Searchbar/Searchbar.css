@@ -1,0 +1,35 @@
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #444C57;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn.btn-secondary.my-2.my-sm-0 {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bi.bi-search {
+    color: #444C57;
+    font-size: 24px;
+}

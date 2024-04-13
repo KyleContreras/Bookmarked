@@ -4,8 +4,8 @@ import {useSearch} from "../../contexts/SearchContext.tsx";
 
 
 const ProfilesPage = () => {
-    const [profiles, setProfiles] = useState<IProfile[]>([] || {});
-    //const [profiles, setProfiles] = useState<IProfile[]>([]);
+    //const [profiles, setProfiles] = useState<IProfile[]>([] || {});
+    const [profiles, setProfiles] = useState<IProfile[]>([]);
     const [error, setError] = useState<string | null>(null);
     const { searchQuery } = useSearch();
 

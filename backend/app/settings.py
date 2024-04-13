@@ -1,4 +1,7 @@
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -6,10 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# NOTE: Should be hidden with Environment Variables
-SECRET_KEY = 'django-insecure-m3@@yv-_v@7ih$7ts55y3%%f8_6(t(5+sn0o^%_5o9a-w9_czw'
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -19,8 +20,6 @@ ALLOWED_HOSTS = []
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5173',
 ]
-
-GOOGLE_BOOKS_API_KEY = 'AIzaSyCLp7K1lVRDROWU4CqJhpp_UJ1zvh_CUpo'
 
 # Application definition
 

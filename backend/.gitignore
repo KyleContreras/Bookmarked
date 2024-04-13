@@ -43,3 +43,6 @@ Thumbs.db
 
 # Exclude all files and directories inside __pycache__
 __pycache__/*
+
+# Ignore .env file
+.env

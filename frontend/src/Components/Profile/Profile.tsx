@@ -23,8 +23,8 @@ export const Profile: React.FC<{ profile: IProfile }> = ({ profile }) => {
                     throw new Error("Failed to fetch bookcase");
                 }
                 setBookcase(await response.json());
-            } catch (errorMsg : any) {
-                console.log(errorMsg.message);
+            } catch (error) {
+                console.error('Error:', error);
             }
         };
         fetchBookcase();

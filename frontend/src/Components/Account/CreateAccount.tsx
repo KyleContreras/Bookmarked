@@ -6,7 +6,6 @@ const CreateAccount = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -34,8 +33,8 @@ const CreateAccount = () => {
             localStorage.setItem('user_id', id);
 
             navigate('/books');
-        } catch (errorMsg: any) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

@@ -20,7 +20,7 @@ export const MyBookReview = ({bookId}: IBookId) => {
     //const navigate = useNavigate();
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user_id') || '0';
-    const [error, setError] = useState(null);
+
     const [userReview, setUserReview] = useState<IUserReview>({id: 0, book: bookId, user: parseInt(userId), written_review: '', star_rating: ''});
 
     useEffect(() => {
@@ -44,8 +44,8 @@ export const MyBookReview = ({bookId}: IBookId) => {
             setUserReview(responseData);
             //navigate("/myprofile", { replace: true });
             console.log(userReview);
-        } catch (errorMsg) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

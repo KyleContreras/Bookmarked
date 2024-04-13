@@ -3,7 +3,7 @@ import './Searchbar.css';
 import { useSearch } from "../../contexts/SearchContext.tsx";
 
 function Searchbar() {
-    const { searchQuery, setSearchQuery } = useSearch();
+    const { setSearchQuery } = useSearch();
     const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

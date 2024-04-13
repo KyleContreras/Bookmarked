@@ -10,7 +10,6 @@ interface ICreateProfile {
 
 const CreateProfile = ({user_id, token, onProfileCreated}: ICreateProfile) => {
     const navigate = useNavigate();
-    const [status, setStatus] = useState('');
     const [showForm, setShowForm] = useState(false);
 
     const [profilePicture, setProfilePicture] =
@@ -42,11 +41,11 @@ const CreateProfile = ({user_id, token, onProfileCreated}: ICreateProfile) => {
             if (!response.ok) {
                 throw new Error(data.message || 'Failed to create/update profile');
             }
-            setStatus('Profile successfully created/updated!');
+            console.log('Profile successfully created/updated!');
             onProfileCreated(data);
             navigate("/myprofile", { replace: true });
-        } catch (error: any) {
-            setStatus(error.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

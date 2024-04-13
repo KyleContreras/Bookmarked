@@ -20,7 +20,7 @@ const BookcaseDeleteBook = async (bookId:number) => {
             throw new Error('Failed to delete book from bookcase');
         }
         alert('Removed book from your bookcase! Refresh to see change.');
-    } catch (error: any) {
+    } catch (error) {
         console.log(error.message);
     }
 }

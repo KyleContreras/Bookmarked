@@ -11,7 +11,7 @@ interface IEditProfile {
 const EditProfile = ({ profile, token, onProfileEdit }:IEditProfile) => {
     const navigate = useNavigate();
     const [showForm, setShowForm] = useState(false);
-    const [error, setError] = useState(null);
+
 
     const [profilePicture, setProfilePicture] = useState(profile.profile_picture);
     const [profileName, setProfileName] = useState(profile.name);
@@ -42,8 +42,8 @@ const EditProfile = ({ profile, token, onProfileEdit }:IEditProfile) => {
 
             onProfileEdit(responseData);
             navigate("/myprofile", { replace: true });
-        } catch (errorMsg) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

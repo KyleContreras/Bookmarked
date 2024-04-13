@@ -19,7 +19,7 @@ const BookcaseAddBook = async (bookId:number) => {
             throw new Error('Failed to add book to bookcase');
         }
         alert('Added book to your bookcase!');
-    } catch (error: any) {
+    } catch (error) {
         console.log(error.message);
     }
 }

@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
-import {BooksList} from "./BooksList.tsx";
+import {BooksList, IBook} from "./BooksList.tsx";
 import {useSearch} from "../../contexts/SearchContext.tsx";
 
 
 const BooksPage = () => {
-    const [books, setBooks] = useState([] || {});
+    //const [books, setBooks] = useState([] || {});
+    const [books, setBooks] = useState<IBook[]>([]);
     const [error, setError] = useState<string | null>(null);
     const { searchQuery } = useSearch();
 
@@ -27,8 +28,8 @@ const BooksPage = () => {
             const bookData = await response.json();
             setBooks(bookData);
             setError(null);
-        } catch (errorMsg: any) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

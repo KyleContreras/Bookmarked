@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
 
 const LogoutButton = () => {
-    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleLogout = async (e) => {
@@ -33,8 +31,8 @@ const LogoutButton = () => {
             console.log(`User successfully logged out.`);
 
             navigate('/books');
-        } catch (errorMsg: any) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

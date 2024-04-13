@@ -27,8 +27,8 @@ const DeleteProfileButton = ({profile, token, onProfileDeleted}: IDeleteProfile)
             setStatus('Your profile has been successfully deleted.');
             onProfileDeleted();
             navigate("/myprofile", { replace: true });
-        } catch (error: any) {
-            setStatus(error.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

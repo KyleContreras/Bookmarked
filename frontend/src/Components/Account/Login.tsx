@@ -5,7 +5,6 @@ const Login = () => {
     const [showForm, setShowForm] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -32,8 +31,8 @@ const Login = () => {
             localStorage.setItem('user_id', id);
 
             navigate('/mybookcase', { replace: true });
-        } catch (errorMsg: any) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
             alert('Failed to login.');
         }
     };

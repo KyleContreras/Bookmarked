@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
 import {IUserReview} from "./MyBookReview.tsx";
 
 export const DeleteBookReview: React.FC<{ userReview: IUserReview | null }> = ({ userReview }) => {
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
-    const [error, setError] = useState<string | null>(null);
 
     const handleDeleteReview = async () => {
         try {
@@ -25,8 +24,8 @@ export const DeleteBookReview: React.FC<{ userReview: IUserReview | null }> = ({
                 throw new Error(responseData.message || "Failed to delete review");
             }
             navigate("/books", { replace: true });
-        } catch (errorMsg) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

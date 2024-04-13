@@ -29,8 +29,8 @@ const DeleteBookcase = ({ bookcase, token, onBookcaseDeleted }: IDeleteBookcase)
             localStorage.removeItem('bookcase_id');
             setStatus('Your bookcase has been successfully deleted.');
             navigate("/myprofile", { replace: true });
-        } catch (error: any) {
-            setStatus(error.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

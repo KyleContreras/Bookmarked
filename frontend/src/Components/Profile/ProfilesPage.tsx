@@ -5,6 +5,7 @@ import {useSearch} from "../../contexts/SearchContext.tsx";
 
 const ProfilesPage = () => {
     const [profiles, setProfiles] = useState<IProfile[]>([] || {});
+    //const [profiles, setProfiles] = useState<IProfile[]>([]);
     const [error, setError] = useState<string | null>(null);
     const { searchQuery } = useSearch();
 
@@ -27,8 +28,8 @@ const ProfilesPage = () => {
             const profileData = await response.json();
             setProfiles(profileData);
             setError(null);
-        } catch (errorMsg: any) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

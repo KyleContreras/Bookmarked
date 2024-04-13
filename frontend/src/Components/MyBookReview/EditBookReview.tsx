@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import {IUserReview} from "./MyBookReview.tsx";
 
 export const EditBookReview: React.FC<{ userReview: IUserReview | null }> = ({ userReview }) => {
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
-    const [error, setError] = useState<string | null>(null);
 
     const handleEditReview = async () => {
         try {
@@ -29,8 +28,8 @@ export const EditBookReview: React.FC<{ userReview: IUserReview | null }> = ({ u
                 throw new Error(responseData.message || "Failed to create account");
             }
             navigate("/books", { replace: true });
-        } catch (errorMsg) {
-            setError(errorMsg.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

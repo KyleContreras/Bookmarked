@@ -10,7 +10,6 @@ interface ICreateBookcase {
 
 const CreateBookcase = ({user_id, token, onBookcaseCreated}: ICreateBookcase) => {
     const navigate = useNavigate();
-    const [status, setStatus] = useState('');
     const [bookcaseName, setBookcaseName] = useState('');
 
     const handleCreate = async (e) => {
@@ -33,11 +32,11 @@ const CreateBookcase = ({user_id, token, onBookcaseCreated}: ICreateBookcase) =>
             if (!response.ok) {
                 throw new Error(data.message || 'Failed to create/update bookcase');
             }
-            setStatus('Bookcase successfully created/updated!');
+            console.log('Bookcase successfully created/updated!');
             onBookcaseCreated(data);
             navigate("/books", { replace: true });
-        } catch (error: any) {
-            setStatus(error.message);
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 

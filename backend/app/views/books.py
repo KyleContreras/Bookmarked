@@ -10,7 +10,7 @@ class BookViewSet(viewsets.ModelViewSet):
     authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAdminUser]
     filter_backends = [filters.SearchFilter]
-    search_fields = ['title', 'author', 'isbn']
+    search_fields = ['title', 'author', 'isbn', 'genre']
 
     # A helper function
     def get_permissions(self):

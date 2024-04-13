@@ -20,6 +20,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5173',
 ]
 
+GOOGLE_BOOKS_API_KEY = 'AIzaSyCLp7K1lVRDROWU4CqJhpp_UJ1zvh_CUpo'
+
 # Application definition
 
 INSTALLED_APPS = [

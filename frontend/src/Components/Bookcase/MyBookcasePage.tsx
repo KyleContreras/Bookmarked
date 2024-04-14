@@ -16,7 +16,7 @@ const MyBookcasePage = () => {
 
     const fetchBookcase = async () => {
         try {
-            const url = `http://127.0.0.1:8000/api/bookcase/my_bookcase`;
+            const url = `http://3.143.218.54:8000/api/bookcase/my_bookcase`;
 
             const response = await fetch(url, {
                 method: 'GET',

@@ -12,7 +12,7 @@ export const EditBookReview: React.FC<{ userReview: IUserReview | null }> = ({ u
                 return
             }
             
-            const response = await fetch(`http://127.0.0.1:8000/api/reviews/${userReview.id}/`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/reviews/${userReview.id}/`, {
                 method: "PATCH",
                 headers: {
                     Authorization: `Token ${token}`,

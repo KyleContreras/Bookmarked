@@ -13,7 +13,7 @@ const LogoutButton = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/user/logout/', {
+            const response = await fetch('http://3.143.218.54:8000/api/user/logout/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

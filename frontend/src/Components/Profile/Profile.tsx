@@ -18,7 +18,7 @@ export const Profile: React.FC<{ profile: IProfile }> = ({ profile }) => {
     useEffect(() => {
         const fetchBookcase = async () => {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/bookcasebyuserid/${profile.user}`);
+                const response = await fetch(`http://3.143.218.54:8000/api/bookcasebyuserid/${profile.user}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch bookcase");
                 }

@@ -15,9 +15,9 @@ const ProfilesPage = () => {
 
     const fetchData = async () => {
         try {
-            let url = 'http://127.0.0.1:8000/api/userprofile/';
+            let url = 'http://3.143.218.54:8000/api/userprofile/';
             if (searchQuery) {
-                url = `http://127.0.0.1:8000/api/userprofile/?search=${encodeURIComponent(searchQuery)}`;
+                url = `http://3.143.218.54:8000/api/userprofile/?search=${encodeURIComponent(searchQuery)}`;
             }
 
             const response = await fetch(url);

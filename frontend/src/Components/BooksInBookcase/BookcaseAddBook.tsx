@@ -3,7 +3,7 @@ const BookcaseAddBook = async (bookId:number) => {
     const bookcaseId = localStorage.getItem('bookcase_id');
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/booksinbookcase/`, {
+        const response = await fetch(`http://3.143.218.54:8000/api/booksinbookcase/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Token ${token}`,

@@ -12,7 +12,7 @@ export const DeleteBookReview: React.FC<{ userReview: IUserReview | null }> = ({
                 return
             }
 
-            const response = await fetch(`http://127.0.0.1:8000/api/reviews/${userReview.id}/`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/reviews/${userReview.id}/`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Token ${token}`,

@@ -29,7 +29,7 @@ export const MyBookReview = ({bookId}: IBookId) => {
 
     const fetchBookReview = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/reviews/my_book_review?user_id=${userId}&book_id=${bookId}`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/reviews/my_book_review?user_id=${userId}&book_id=${bookId}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Token ${token}`,

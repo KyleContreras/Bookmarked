@@ -15,7 +15,7 @@ const DeleteBookcase = ({ bookcase, token, onBookcaseDeleted }: IDeleteBookcase)
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/bookcase/${bookcase.id}/`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/bookcase/${bookcase.id}/`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Token ${token}`,

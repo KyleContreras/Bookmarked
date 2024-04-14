@@ -21,7 +21,7 @@ const CreateProfile = ({user_id, token, onProfileCreated}: ICreateProfile) => {
     const handleCreate = async (e) => {
         e.preventDefault();
 
-        const url = `http://127.0.0.1:8000/api/userprofile/`;
+        const url = `http://3.143.218.54:8000/api/userprofile/`;
         try {
             const response = await fetch(url, {
                 method: 'POST',

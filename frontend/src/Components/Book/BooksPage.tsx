@@ -15,9 +15,9 @@ const BooksPage = () => {
 
     const fetchData = async () => {
         try {
-            let url = 'http://127.0.0.1:8000/api/books/';
+            let url = 'http://3.143.218.54:8000/api/books/';
             if (searchQuery) {
-                url = `http://127.0.0.1:8000/api/books/?search=${encodeURIComponent(searchQuery)}`;
+                url = `http://3.143.218.54:8000/api/books/?search=${encodeURIComponent(searchQuery)}`;
             }
 
             const response = await fetch(url);

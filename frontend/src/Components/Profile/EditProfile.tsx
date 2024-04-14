@@ -22,7 +22,7 @@ const EditProfile = ({ profile, token, onProfileEdit }:IEditProfile) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/userprofile/${profile.id}/`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/userprofile/${profile.id}/`, {
                 method: "PATCH",
                 headers: {
                     Authorization: `Token ${token}`,

@@ -12,7 +12,7 @@ export const CreateBookReview: React.FC<{ userReview: IUserReview | null }> = ({
                 return
             }
 
-            const response = await fetch(`http://127.0.0.1:8000/api/reviews/`, {
+            const response = await fetch(`http://3.143.218.54:8000/api/reviews/`, {
                 method: "POST",
                 headers: {
                     Authorization: `Token ${token}`,
